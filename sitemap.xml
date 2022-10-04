@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ivyhulife.github.io/2022/10/04/2022-10-04-4%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://ivyhulife.github.io/2022/10/05/2022-10-05-1-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://ivyhulife.github.io/2022/10/04/2022-10-04-1-wsl%E5%8F%8Aconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://ivyhulife.github.io/resume/index.html</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://ivyhulife.github.io/2022/10/04/2022-10-04-2-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://ivyhulife.github.io/2022/10/05/2022-10-04-1-wsl%E5%8F%8Aconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -29,7 +29,16 @@
   </url>
   
   <url>
-    <loc>https://ivyhulife.github.io/2022/10/04/2022-10-04-3-Linux%E4%B8%89%E5%89%91%E5%AE%A2/</loc>
+    <loc>https://ivyhulife.github.io/2022/10/05/2022-10-04-2-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ivyhulife.github.io/2022/10/05/2022-10-04-3-Linux%E4%B8%89%E5%89%91%E5%AE%A2/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -61,19 +70,33 @@
   </url>
   
   <url>
-    <loc>https://ivyhulife.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
+    <loc>https://ivyhulife.github.io/tags/cs/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ivyhulife.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://ivyhulife.github.io/tags/life/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://ivyhulife.github.io/categories/bioinformatics/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ivyhulife.github.io/categories/life/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
