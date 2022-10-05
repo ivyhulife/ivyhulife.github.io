@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="Ivy的小宇宙">
 <meta property="og:description" content="本篇主要整理了：  个人目前已经掌握的、经常使用的、关于shell编程的相关知识 个人认为了解这些命令，已经基本满足完成生物信息学入门分析要求 后续有需要，可以再针对性的学习、记录、整理 之后将正式开始生物信息学的分析、R及Python的学习 #{}中加#可获取变量长度，但博客页面无法正常显示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-05T13:29:55.642Z">
-<meta property="article:modified_time" content="2022-10-05T12:08:22.000Z">
+<meta property="article:published_time" content="2022-10-05T15:05:17.028Z">
+<meta property="article:modified_time" content="2022-10-05T00:08:22.000Z">
 <meta property="article:author" content="Ivy Hu">
 <meta property="article:tag" content="cs">
 <meta property="article:tag" content="Linux">
@@ -71,7 +71,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 5
+			总文章数 6
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -181,7 +181,7 @@
 
         
         <a href="/2022/10/05/2022-10-05-2-shell%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2022-10-05T13:29:55.642Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-05</time>
+  	<time datetime="2022-10-05T15:05:17.028Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -683,7 +683,7 @@
 </ol>
 <h1 id="shell输入输出重定向"><a href="#shell输入输出重定向" class="headerlink" title="shell输入输出重定向"></a>shell输入输出重定向</h1><ol>
 <li>0 标准输入（STDIN），1 标准输出（STDOUT），2 标准错误输出（STDERR）</li>
-<li>将 stdout 和 stderr 合并后重定向到 file：2 和 &gt; 间无空格，2&gt; 一体的时候才表示错误输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; file 2&gt;&amp;1</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="built_in">command</span> &gt;&gt; file 2&gt;&amp;1</span><br></pre></td></tr></table></figure></li>
+<li>将 stdout 和 stderr 合并后重定向到 file：2 和 &gt; 间无空格，2&gt; 一体的时候才表示错误输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; file 2&gt;&amp;1</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="built_in">command</span> &gt;&gt; file 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 经典用法</span></span><br><span class="line"><span class="built_in">nohup</span> time <span class="built_in">command</span> &gt; file.log 2&gt;&amp;1 &amp; </span><br><span class="line"><span class="comment"># &amp;后台运行，防止终端一直被某进程占用，使终端可以执行别到的任务，但如果终端关闭，则进程也停止运行</span></span><br><span class="line"><span class="comment"># nohup不挂起（no hang up），也即关闭终端或者退出账号，进程也继续保持运行状态</span></span><br><span class="line"><span class="comment"># &gt; file.log 2&gt;&amp;1 可简写为： &amp;&gt;log</span></span><br></pre></td></tr></table></figure></li>
 <li>执行某个命令，但又不希望在屏幕上显示输出结果，可以将输出重定向到 &#x2F;dev&#x2F;null,起到”禁止输出”的效果<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; /dev/null</span><br></pre></td></tr></table></figure></li>
 <li>屏蔽 stdout 和 stderr<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; /dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure></li>
 </ol>
@@ -855,6 +855,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/10/05/2022-10-05-3-%E7%94%9F%E4%BF%A1%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%A3%80%E9%AA%8C%E5%8F%8Ahg38/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          （生信实操1）测序数据和hg38下载及校验
+        
+      </div>
+    </a>
   
   
     <a href="/2022/10/05/2022-10-05-1-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
