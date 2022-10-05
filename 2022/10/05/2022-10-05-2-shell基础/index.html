@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ivyhulife.github.io">
-  <title>（生信基础1）wsl2及conda的安装和使用 | Ivy的小宇宙</title>
+  <title>（生信入门篇4）shell编程 | Ivy的小宇宙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇主要整理了：  如何在Windows系统上安装WSL，为基本的生物信息学的学习提供Linux环境的练习平台 在Linux系统中安装、使用conda，为后续正式的生物信息学的学习、分析打下基础">
+  <meta name="description" content="本篇主要整理了：  个人目前已经掌握的、经常使用的、关于shell编程的相关知识 个人认为了解这些命令，已经基本满足完成生物信息学入门分析要求 后续有需要，可以再针对性的学习、记录、整理 之后将正式开始生物信息学的分析、R及Python的学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="（生信基础1）wsl2及conda的安装和使用">
-<meta property="og:url" content="https://ivyhulife.github.io/2022/10/05/2022-10-04-1-wsl%E5%8F%8Aconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="（生信入门篇4）shell编程">
+<meta property="og:url" content="https://ivyhulife.github.io/2022/10/05/2022-10-05-2-shell%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Ivy的小宇宙">
-<meta property="og:description" content="本篇主要整理了：  如何在Windows系统上安装WSL，为基本的生物信息学的学习提供Linux环境的练习平台 在Linux系统中安装、使用conda，为后续正式的生物信息学的学习、分析打下基础">
+<meta property="og:description" content="本篇主要整理了：  个人目前已经掌握的、经常使用的、关于shell编程的相关知识 个人认为了解这些命令，已经基本满足完成生物信息学入门分析要求 后续有需要，可以再针对性的学习、记录、整理 之后将正式开始生物信息学的分析、R及Python的学习">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-04T18:04:08.816Z">
-<meta property="article:modified_time" content="2022-10-04T00:08:22.000Z">
+<meta property="article:published_time" content="2022-10-05T13:12:37.783Z">
+<meta property="article:modified_time" content="2022-10-05T12:08:22.000Z">
 <meta property="article:author" content="Ivy Hu">
 <meta property="article:tag" content="cs">
 <meta property="article:tag" content="Linux">
@@ -168,20 +168,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2022-10-04-1-wsl及conda安装使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2022-10-05-2-shell基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      （生信基础1）wsl2及conda的安装和使用
+      （生信入门篇4）shell编程
     </h1>
   
 
         
-        <a href="/2022/10/05/2022-10-04-1-wsl%E5%8F%8Aconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2022-10-04T18:04:08.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-05</time>
+        <a href="/2022/10/05/2022-10-05-2-shell%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2022-10-05T13:12:37.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -200,70 +200,92 @@
       
         <p>本篇主要整理了：</p>
 <ol>
-<li>如何在Windows系统上安装WSL，为基本的生物信息学的学习提供Linux环境的练习平台</li>
-<li>在Linux系统中安装、使用conda，为后续正式的生物信息学的学习、分析打下基础</li>
+<li>个人目前已经掌握的、经常使用的、关于shell编程的相关知识</li>
+<li>个人认为了解这些命令，已经基本满足完成生物信息学入门分析要求</li>
+<li>后续有需要，可以再针对性的学习、记录、整理</li>
+<li>之后将正式开始生物信息学的分析、R及Python的学习</li>
 </ol>
 <span id="more"></span>
 
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
-<li>生物信息学软件几乎均在Linux系统中开发、运行，那么为什么要用Linux呢？<ol>
-<li>Linux系统开源、免费</li>
-<li>不需要图形界面，节约资源</li>
-<li>使用命令行模式，适合高效、批量、流程化处理，适合大规模计算</li>
+<h1 id="shell基础"><a href="#shell基础" class="headerlink" title="shell基础"></a>shell基础</h1><ol>
+<li>shebang<ol>
+<li>shell脚本为#!&#x2F;&#x2F;bin&#x2F;bash</li>
+<li>python脚本为#!&#x2F;usr&#x2F;bin&#x2F;python</li>
+<li>#!&#x2F;usr&#x2F;bin&#x2F;env 解释器名称</li>
 </ol>
 </li>
-<li>一般进行生物信息学分析的机构有专业的服务器，通过Mobaxterm等远程登录即可使用，不需要配置Linux环境。但个人使用Windowns系统、无Linux环境时，可能需要使用Linux环境，可在windows上安装桌面版的Linux即WSL（有root权限）作为了解、学习基础Linux相关命令的平台。使用个人电脑，因性能受限，仅能分析较少量的数据，无法作为真正的生物信息学运行平台。</li>
-</ol>
-<h1 id="WSL安装"><a href="#WSL安装" class="headerlink" title="WSL安装"></a>WSL安装</h1><ol>
-<li>准备工作：window系统满足版本要求，否则需要更新系统</li>
-<li>以管理员身份运行Power Shell并运行： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
-<ol>
-<li>或者在控制面板——程序——启用或关闭windows功能——勾选windows虚拟机监控程序平台，虚拟机平台，适用于Linux的Windows子平台，共3个选项</li>
+<li>单行注释#，多行注释：<ol>
+<li>把要注释的一段代码用{}括起来，定义成函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果</li>
+<li>:&lt;&lt;EOF<br>  注释内容…<br>  注释内容…<br>  注释内容…<br>  EOF</li>
 </ol>
 </li>
-<li>重启系统</li>
-<li>安装wsl2的<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">更新包</a></li>
-<li>在Power Shell中设置wsl2为默认版本 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure></li>
-<li>安装Ubuntu桌面版<ol>
-<li>最简单：在Mircosoft Store中查找Ubuntu，进行下载和安装。但可能因各种限制无法直接安装</li>
-<li>Power Shell命令行：查看可安装版本，并安装，我选择的是显示的最新版本20.04  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl --list --online</span><br><span class="line">wsl --install -d Ubuntu-20.04</span><br></pre></td></tr></table></figure></li>
-<li>使用<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#downloading-distributions">安装包</a></li>
+<li>printf “%-10s %-8s %-4.2f\n” 郭芙 女 47.9876,<ol>
+<li>％s 输出一个字符串，％d 整型输出，％c 输出一个字符，％f 输出小数,.2 指保留2位小数</li>
 </ol>
 </li>
-<li>设置账户和密码</li>
-<li>默认会安装在C盘中，路径一般为C:\Users\用户\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04\LocalState，空间不大</li>
-<li>修改成安装在D盘，注意版本 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wsl -l --all -v</span><br><span class="line">wsl --<span class="built_in">export</span> Ubuntu-20.04 d:\wsl-ubuntu20.04.tar</span><br><span class="line">wsl --unregister Ubuntu-20.04</span><br><span class="line">wsl --import Ubuntu-20.04 d:\wsl-ubuntu20.04 d:\wsl-ubuntu20.04.tar --version 2</span><br><span class="line">ubuntu2004 config --default-user 帐户名</span><br><span class="line">del d:\wsl-ubuntu22.04.tar</span><br></pre></td></tr></table></figure></li>
-<li>安装成功后，会在d盘新生成wsl文件夹，删除原来20.04的文件夹</li>
-<li>在windows地址栏输入  \wsl$   ，可直接进入wsl硬盘、查看文件</li>
+<li>read -t 10 -p “1请0秒内输入” var  #获取输入var</li>
+<li>cat &lt;&lt;END<br>   LINE1<br>   LINE2<br>   LINE3<br> END  </li>
+<li>basename [string&#x2F;pathname] [suffix]，可以取路径中的文件名称，指定suffix可以去除后缀</li>
+<li>dirname 取文件绝对路径，如$(cd $(dirname path); pwd)</li>
+<li>日期：$(date + %y%m%d%H%M%S)</li>
 </ol>
-<h1 id="WSL配置"><a href="#WSL配置" class="headerlink" title="WSL配置"></a>WSL配置</h1><ol>
-<li>20220914清华大学镜像、北京外国语大学镜像均不可用，<a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.a7321b11kRsutj">阿里镜像</a>可用<ol>
-<li>先备份&#x2F;etc&#x2F;apt&#x2F;sources.list</li>
-<li>更改sudo vi &#x2F;etc&#x2F;apt&#x2F;sources.list，添加对应版本内容即可</li>
-</ol>
-</li>
-<li>更新所有软件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y update</span><br><span class="line">sudo apt -y upgrade</span><br><span class="line">sudo do-release-upgrade <span class="comment"># 可以升级到最新版本ubuntu</span></span><br></pre></td></tr></table></figure></li>
-<li>其它命令 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release <span class="comment"># 查看系统版本</span></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo | grep processor  <span class="comment"># 查看CPU信息</span></span><br><span class="line"><span class="built_in">df</span> -h  <span class="comment"># 查看硬盘信息</span></span><br></pre></td></tr></table></figure></li>
-<li>更改字体、更改终端颜色时间显示  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS1=<span class="string">&quot;\[\e[32m\][\u@\h \t \w]$\[\e[m\]&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>卸载 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister &lt;要卸载的发行版&gt;  </span><br><span class="line"><span class="comment"># 再删除安装目录，彻底删除</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Conda安装"><a href="#Conda安装" class="headerlink" title="Conda安装"></a>Conda安装</h1><ol>
-<li>安装Miniconda<ol>
-<li>直接下载、安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &amp;&amp;</span><br><span class="line">bash Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></li>
-<li>或者清华镜像下载wget -c [<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/?C=M&amp;O=A%5D%E3%80%81%E5%AE%89%E8%A3%85">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/?C=M&amp;O=A]、安装</a></li>
+<h1 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h1><ol>
+<li>变量及命名：<font color=red>变量名和等号之间不能有空格</font><ol>
+<li>仅数字、字母、下划线</li>
+<li>不能数字开头</li>
+<li>严格区分大小写</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）</li>
+<li>set显示当前shell所有变量，unset删除变量</li>
+<li>readonly var，将变量var变为只读变量，无法修改、无法用unset删除</li>
+<li>常用系统变量：$HOME, $PWD, $USER</li>
 </ol>
 </li>
-<li>source .bashrc重启，会进入base状态，表明安装成功 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda - -version    <span class="comment"># 查看版本</span></span><br></pre></td></tr></table></figure></li>
-<li>添加国内镜像  <ol>
-<li>2022年9月清华大学镜像源不可用，更改为[北京外国语大学镜像源]<a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/help/anaconda/">https://mirrors.bfsu.edu.cn/help/anaconda/</a> </li>
-<li>方法一：自动添加  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.condarc  <span class="comment">#添加以下内容</span></span><br><span class="line">channels:</span><br><span class="line">- defaults</span><br><span class="line">show_channel_urls: <span class="literal">true</span></span><br><span class="line">default_channels:</span><br><span class="line">- https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda</span><br><span class="line">- https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge</span><br><span class="line">- https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span><br><span class="line">- https://mirrors.bfsu.edu.cn/anaconda/pkgs/main</span><br><span class="line">- https://mirrors.bfsu.edu.cn/anaconda/pkgs/r</span><br><span class="line">- https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2   </span><br></pre></td></tr></table></figure></li>
-<li>方法二：手动添加 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda <span class="comment"># 添加</span></span><br><span class="line">conda config --remove channels  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main <span class="comment"># 移除</span></span><br></pre></td></tr></table></figure></li>
-<li>清除索引缓存，保证用的是镜像站提供的索引 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda clean -i</span><br></pre></td></tr></table></figure></li>
 </ol>
-</li>
-<li>个人电脑即可正常安装使用，但工作电脑可能需要关闭防火墙才可以使用、安装，否则会提示网络错误</li>
-</ol>
-<h1 id="conda使用"><a href="#conda使用" class="headerlink" title="conda使用"></a>conda使用</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 环境</span></span><br><span class="line">conda create -n 环境名     <span class="comment"># 创建环境</span></span><br><span class="line">conda activate 环境名     <span class="comment"># 激活环境</span></span><br><span class="line">conda deactivate     <span class="comment"># 退出环境</span></span><br><span class="line">conda activate base     <span class="comment"># 退出环境</span></span><br><span class="line">conda <span class="built_in">env</span> list    <span class="comment"># 查看已经创建的环境列表</span></span><br><span class="line">conda remove -n 环境名    <span class="comment"># 删除环境</span></span><br><span class="line"><span class="built_in">rm</span> -rf miniconda3     <span class="comment"># 删除安装的软件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 软件</span></span><br><span class="line">conda list <span class="comment"># 查看已安装软件</span></span><br><span class="line">conda search 软件名     <span class="comment"># 搜索软件</span></span><br><span class="line">conda install -y 软件1 软件2 软件3     <span class="comment"># 安装软件</span></span><br><span class="line">conda install -y 软件名=1.9  <span class="comment"># 安装特定版本</span></span><br><span class="line">conda install -n 环境名 软件名     <span class="comment"># 在某个环境安装软件</span></span><br><span class="line">conda update 软件名     <span class="comment"># 升级（所有）软件</span></span><br><span class="line">conda upgrade 软件名     <span class="comment"># 升级（所有）软件</span></span><br><span class="line">conda upgrade --all    <span class="comment"># 升级（所有）软件</span></span><br><span class="line">conda uninstall 软件名     <span class="comment"># 移除软件</span></span><br><span class="line">conda remove 软件名    <span class="comment"># 移除软件</span></span><br><span class="line"></span><br><span class="line">conda clean     <span class="comment"># 移除没用的软件安装包和缓冲</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 路径：</span></span><br><span class="line">vi ~/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=/root/anaconda3/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h2 id="变量引用：引号、括号"><a href="#变量引用：引号、括号" class="headerlink" title="变量引用：引号、括号"></a>变量引用：引号、括号</h2><table>
+<thead>
+<tr>
+<th align="left">符号</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">${}</td>
+<td align="left">引用变量</td>
+</tr>
+<tr>
+<td align="left">单引号’’</td>
+<td align="left">强引用，所见即所得，不识别特殊语法</td>
+</tr>
+<tr>
+<td align="left">双引号””</td>
+<td align="left">弱引用，可以引用变量，能识别特殊符号</td>
+</tr>
+<tr>
+<td align="left">反引号`&#96; &#x3D; $()</td>
+<td align="left">引用`&#96;命令结果</td>
+</tr>
+<tr>
+<td align="left">（）</td>
+<td align="left">开启子shell执行命令结果</td>
+</tr>
+</tbody></table>
+<h2 id="变量子串"><a href="#变量子串" class="headerlink" title="变量子串"></a>变量子串</h2><table>
+<thead>
+<tr>
+<th align="left">符号</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">${变量}</td>
+<td align="left">返回变量值</td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+
       
 
       
@@ -386,7 +408,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ivyhulife.github.io/2022/10/05/2022-10-04-1-wsl%E5%8F%8Aconda%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ivyhulife.github.io/2022/10/05/2022-10-05-2-shell%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -400,15 +422,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/10/05/2022-10-04-2-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          （生信基础2）Linux基础入门命令
-        
-      </div>
-    </a>
   
+    <a href="/2022/10/05/2022-10-05-1-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（生活1）hexo+github+yilia搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -433,7 +451,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WSL%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">WSL安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WSL%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">WSL配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conda%E5%AE%89%E8%A3%85"><span class="toc-number">4.</span> <span class="toc-text">Conda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#conda%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">conda使用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shell%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">shell基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shell%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">shell变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8%EF%BC%9A%E5%BC%95%E5%8F%B7%E3%80%81%E6%8B%AC%E5%8F%B7"><span class="toc-number">2.1.</span> <span class="toc-text">变量引用：引号、括号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%AD%90%E4%B8%B2"><span class="toc-number">2.2.</span> <span class="toc-text">变量子串</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
